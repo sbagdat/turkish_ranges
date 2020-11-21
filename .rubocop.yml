@@ -1,0 +1,12 @@
+AllCops:
+  TargetRubyVersion: 2.7
+  NewCops: enable
+Layout/DotPosition:
+  EnforcedStyle: leading
+  Enabled: true
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+Style/AsciiComments:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Exclude: ['bin/console', 'Rakefile']
