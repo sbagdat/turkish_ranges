@@ -7,3 +7,4 @@ require 'turkish_ranges/tr_text'
 # like ş, ç, ğ, ...
 module TurkishRanges
 end
+
