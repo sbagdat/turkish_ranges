@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Sıtkı Bağdat']
   spec.email         = ['sbagdat@gmail.com']
 
-  spec.summary       = 'Ranges meet Turkish language'
-  spec.description   = 'Turkis language support for ranges and comparisons. You can use ' \
-                       'them anywhere in your code, Range, Regexp, etc..'
+  spec.summary       = 'Ranges and string comparisons meet Turkish language'
+  spec.description   = 'Ranges and string comparisons meet Turkish language. You can use ' \
+                       'it anywhere in your code, Range, Regexp, etc..'
   spec.homepage      = 'https://github.com/sbagdat/turkish_ranges'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.7.0')

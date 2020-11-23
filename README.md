@@ -1,8 +1,6 @@
 # TurkishRanges
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/turkish_ranges`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Ranges and comparisons meet Turkish language. 
 
 ## Installation
 
@@ -22,7 +20,33 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'turkish_ranges'
+
+include TurkishRanges
+
+# Creating new texts
+TrText.new('Türkçe')
+
+# Comparing texts containing Turkish letters
+TrText.new('Ğ')      > TrText.new('Ü')       # false
+TrText.new('abbası') < TrText.new('abbasi')  # true
+
+# Creating ranges containing Turkish letters
+full_upcase_range = TrText.new('A')..TrText.new('Z')
+full_upcase_range.to_a  
+# => [A, B, C, Ç, D, E, F, G, Ğ, H, I, İ, J, K, L, M, 
+#     N, O, Ö, P, Q, R, S, Ş, T, U, Ü, V, W, X, Y, Z]
+
+full_downcase_range = TrText.new('A')..TrText.new('Z')
+full_downcase_range.to_a  
+# => [a, b, c, ç, d, e, f, g, ğ, h, ı, i, j, k, l, m,
+#     n, o, ö, p, q, r, s, ş, t, u, ü, v, w, x, y, z]
+
+(TrText.new('aa')..TrText.new('ax')).to_a
+# => [aa, ab, ac, aç, ad, ae, af, ag, ağ, ah, aı, ai, aj, ak, al, 
+#     am, an, ao, aö, ap, aq, ar, as, aş, at, au, aü, av, aw, ax]
+```
 
 ## Development
 
@@ -32,8 +56,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/turkish_ranges. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/turkish_ranges/blob/master/CODE_OF_CONDUCT.md).
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/sbagdat/turkish_ranges. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/turkish_ranges/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 

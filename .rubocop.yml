@@ -9,4 +9,10 @@ Style/StringLiterals:
 Style/AsciiComments:
   Enabled: false
 Style/FrozenStringLiteralComment:
-  Exclude: ['bin/console', 'Rakefile']
+  Exclude:
+    - 'bin/console'
+    - 'Rakefile'
+Metrics/BlockLength:
+  ExcludedMethods:
+    - 'describe'
+    - 'context'

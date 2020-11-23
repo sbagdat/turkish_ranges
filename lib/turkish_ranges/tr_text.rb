@@ -16,7 +16,7 @@ module TurkishRanges
 
     # Using for calculating character codes
     ASCII_ALPHABET = 'ABCÇDEFGĞHIİJKLMNOÖPQRSŞTUÜVWXYZabcçdefgğhıijklmnoöpqrsştuüvwxyz'
-                     .chars.map.with_index { |ch, i| [ch, i + 65] }.to_h.freeze
+                     .chars.map.with_index { [_1, _2 + 65] }.to_h.freeze
 
     # A new instance of TrText
     #
@@ -80,3 +80,5 @@ module TurkishRanges
     end
   end
 end
+
+(TurkishRanges::TrText.new("a")..TurkishRanges::TrText.new("z")).to_a
