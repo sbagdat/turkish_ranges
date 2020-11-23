@@ -1,5 +1,8 @@
 # TurkishRanges
 
+[![Gem Version](https://badge.fury.io/rb/turkish_ranges.svg)](https://badge.fury.io/rb/turkish_ranges)
+[![Build Status](https://travis-ci.org/sbagdat/turkish_ranges.svg?branch=main)](https://travis-ci.org/sbagdat/turkish_ranges)
+
 Ranges and comparisons meet Turkish language. 
 
 ## Installation
