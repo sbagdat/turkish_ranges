@@ -2,6 +2,7 @@
 
 require 'bundler/setup'
 require 'turkish_ranges'
+require 'turkish_ranges/tr_text'
 
 RSpec.configure do |config|
   config.example_status_persistence_file_path = '.rspec_status'
