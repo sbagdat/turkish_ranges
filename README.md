@@ -2,6 +2,8 @@
 
 [![Gem Version](https://badge.fury.io/rb/turkish_ranges.svg)](https://badge.fury.io/rb/turkish_ranges)
 [![Build Status](https://travis-ci.org/sbagdat/turkish_ranges.svg?branch=main)](https://travis-ci.org/sbagdat/turkish_ranges)
+[![Code Climate](https://codeclimate.com/github/sbagdat/turkish_ranges/badges/gpa.svg)](https://codeclimate.com/github/sbagdat/turkish_ranges)
+
 
 Ranges and comparisons meet Turkish language. 
 
