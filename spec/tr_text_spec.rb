@@ -19,12 +19,6 @@ RSpec.describe 'TrLetterSpec' do
     end
   end
 
-  context '#codepoints_sum' do
-    it 'returns total codepoints of letters' do
-      expect(TrText.new('ABCÇ').codepoints_sum).to eq 65 + 66 + 67 + 68
-    end
-  end
-
   context 'when doing comparisons' do
     it 'can compare two letters' do
       expect(TrText.new('Ş') > TrText.new('Ğ')).to  be true
@@ -60,9 +54,9 @@ RSpec.describe 'TrLetterSpec' do
       expect(upper_case_range.to_a.join).to eq g_to_u_upper_case
     end
 
-    it 'creates ranges of mutliple characters' do
-      z_to_ad_lower_case = 'zaaabacaçad'
-      z_to_ad_upper_case = 'ZAAABACAÇAD'
+    it 'creates empty range if left side is bigger' do
+      z_to_ad_lower_case = ''
+      z_to_ad_upper_case = ''
       lower_case_range = TrText.new('z')..TrText.new('ad')
       upper_case_range = TrText.new('Z')..TrText.new('AD')
 

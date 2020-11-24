@@ -7,9 +7,7 @@ module TurkishRanges
 
     # Sets the letters for the `TrText`.
     # @return [String] character sequence
-    attr_reader :letters
-
-    private :letters
+    attr_reader :letters, :letters_length
 
     # Using for character mapping
     MAP = 'DHJPTVdhiptvÈğıØşÝèĠĲøŠý'.chars.zip('ÇĞİÖŞÜçğıöşüDHJPTVdhiptv'.chars).to_h.freeze
@@ -24,14 +22,17 @@ module TurkishRanges
     # @return [TrText]
     def initialize(letters)
       @letters = letters
+      @letters_length = letters.length
     end
 
     # Using for object comparison
     #
     # @param [TrText] other
-    # # @return [Integer] 1, 0 or -1
+    # @return [Integer] 1, 0 or -1
     def <=>(other)
-      codepoints_sum <=> other.codepoints_sum
+      return 0 if letters == other.letters
+
+      compare_chars(zip_chars_with(other))
     end
 
     # Calculates codepoint of a single characacter based on ASCII_ALPHABET
@@ -39,13 +40,6 @@ module TurkishRanges
     # @return [Integer]
     def code
       ASCII_ALPHABET[letters] || letters&.ord.to_i
-    end
-
-    # Calculates the sum of codepoints in letters
-    #
-    # @return [Integer]
-    def codepoints_sum
-      letters.chars.map { TrText.new(_1) }.map(&:code).inject(:+)
     end
 
     # Calculates the successor string from `letters`
@@ -78,7 +72,43 @@ module TurkishRanges
     def inspect
       letters
     end
+
+    protected
+
+    # Creates a zipped array from letters
+    #
+    # @param [TrText] other
+    # @return [Array] contains char pairs of each letters
+    def zip_chars_with(other)
+      max_length = [letters_length, other.letters_length].max
+      left_side = letters.ljust(max_length).chars
+      right_side = other.letters.ljust(max_length).chars
+      left_side.zip(right_side)
+    end
+
+    private
+
+    # Compares left and right side of spaceship operator
+    # If left side is bigger than right side returns 1,
+    # otherwise returns -1
+    #
+    # @param [Array] zipped_chars
+    # @return [Integer] 1 or -1
+    def compare_chars(zipped_chars)
+      zipped_chars.each do |char_pairs|
+        left, right = char_pairs
+        next if left == right
+
+        return single_char(left).code > single_char(right).code ? 1 : -1
+      end
+    end
+
+    # Creates an instance of TrText
+    #
+    # @param [String] letter
+    # @return [TrText]
+    def single_char(letter)
+      self.class.new(letter)
+    end
   end
 end
-
-(TurkishRanges::TrText.new("a")..TurkishRanges::TrText.new("z")).to_a
