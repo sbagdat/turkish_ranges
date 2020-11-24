@@ -7,6 +7,9 @@
 
 Ranges and comparisons meet Turkish language. 
 
+**NOTICE:** This gem can create one-dimensional ranges like `a`..`z` and multi-dimensional ranges like `aa`..`az`. It can't 
+create complex ranges like `a`..`abc` right now. I have intended to add this feature in the near future. 
+
 ## Installation
 
 Add this line to your application's Gemfile:
