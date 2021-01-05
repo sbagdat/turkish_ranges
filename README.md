@@ -46,7 +46,7 @@ full_upcase_range.to_a
 # => [A, B, C, Ç, D, E, F, G, Ğ, H, I, İ, J, K, L, M, 
 #     N, O, Ö, P, Q, R, S, Ş, T, U, Ü, V, W, X, Y, Z]
 
-full_downcase_range = TrText.new('A')..TrText.new('Z')
+full_downcase_range = TrText.new('a')..TrText.new('z')
 full_downcase_range.to_a  
 # => [a, b, c, ç, d, e, f, g, ğ, h, ı, i, j, k, l, m,
 #     n, o, ö, p, q, r, s, ş, t, u, ü, v, w, x, y, z]
